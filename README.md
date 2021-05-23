@@ -4,9 +4,10 @@ Repositorio del curso de Python Intermedio de Platzi.
 
 ## Temas
 
-
-[TOCM]
-
-[TOC]
-
-List Comprehension
+- List Comprehension.
+- Dictionary Comprehension.
+- Lambda Function.
+- High Order Functions.
+- Manejo de Errores.
+- Manejo de Excepciones.
+- Manejo de Archivos.

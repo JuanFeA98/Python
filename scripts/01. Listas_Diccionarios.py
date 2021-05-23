@@ -5,11 +5,13 @@ def run():
                 "lastname": "Martínez"
                 }
     
+    # Una lista de diccionarios
     super_list = [
         {"firstname": 'Sandra', "lastname": "Martínez"},
         {"firstname": 'Juan', "lastname": "Martínez"},
     ]
 
+    # Un diccionario de listas
     super_dict = {
         "natural": [1,2,3,4,5],
         "float": [1.5, 3.5, 2.4, 5.3],

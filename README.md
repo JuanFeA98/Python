@@ -1,4 +1,4 @@
-# Python Intermedio
+# :snake: Python Intermedio
 
 Repositorio del curso de Python Intermedio de Platzi.
 

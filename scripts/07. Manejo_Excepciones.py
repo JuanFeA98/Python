@@ -7,10 +7,24 @@ def palindromo(string):
         print(ve)
         return False
 
-if __name__ == '__main__':
-    string = input('Introduce un string: ')
-    
+def challenge(number):
     try:
-        print(palindromo(string))
-    except TypeError:
-        print('No es un string')
+        if number >= 0:
+            print(number)
+        else:
+            raise ValueError('Es un número negativo')
+    except ValueError as ve:
+        print(ve)
+
+if __name__ == '__main__':
+    # string = input('Introduce un string: ')
+    # try:
+    #     print(palindromo(string))
+    # except TypeError:
+    #     print('No es un string')
+
+    numero = int(input('Introduce un número: '))
+    try:
+        challenge(numero)
+    except:
+        print('Algo fallo')

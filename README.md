@@ -1,8 +1,8 @@
-# :snake: Python Intermedio
+# :snake: Python
 
-Repositorio del curso de Python Intermedio de Platzi.
+Repositorio de distintos recursos de Python.
 
-## Temas
+## Nivel Intermedio
 
 - List Comprehension.
 - Dictionary Comprehension.

@@ -1,4 +1,5 @@
 venv/
-.ipynb_checkpoints
+*.ipynb_checkpoints
 *.pdf
-Python_Intermedio.pdf
+*.pdf
+*__pycache__

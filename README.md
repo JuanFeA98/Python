@@ -11,3 +11,8 @@ Repositorio de distintos recursos de Python.
 - Manejo de Errores.
 - Manejo de Excepciones.
 - Manejo de Archivos.
+
+## Nivel Avanzado
+- Tipado estático en Python
+- Closures
+- Decoradores

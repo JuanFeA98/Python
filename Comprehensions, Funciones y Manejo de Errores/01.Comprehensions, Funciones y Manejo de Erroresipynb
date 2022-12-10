@@ -3,7 +3,9 @@
   {
    "cell_type": "markdown",
    "metadata": {},
-   "source": []
+   "source": [
+    "# **Comprehensions, Funciones y Manejo de Errores**"
+   ]
   },
   {
    "cell_type": "markdown",
@@ -114,7 +116,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### **1.1 Modificanco elementos en un conjunto**"
+    "### **Modificanco elementos en un conjunto**"
    ]
   },
   {
@@ -231,7 +233,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### **1.2 Operaciones con conjuntos**"
+    "### **Operaciones con conjuntos**"
    ]
   },
   {
@@ -410,6 +412,271 @@
    "source": [
     "# Diferencia simétrica\n",
     "A ^ B, B ^ A"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## **2. Comprehensions**"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### **List Comprehension**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 69,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+      ]
+     },
+     "execution_count": 69,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "list_comp = [i+1 for i in range(10)]\n",
+    "list_comp"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 72,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[1, 3, 5, 7, 9]"
+      ]
+     },
+     "execution_count": 72,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "list_comp = [i+1 for i in range(10) if i%2==0]\n",
+    "list_comp"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### **Dictionary Comprehension**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{0: 0, 1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81}"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "{i: i**2 for i in range(10)}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Creando un diccionario a partir de objetos iterables\n",
+    "paises = ['COL', 'BRA', 'ARG', 'CHI']\n",
+    "pob = [50, 150, 50, 40]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'COL': 50, 'BRA': 150, 'ARG': 50, 'CHI': 40}"
+      ]
+     },
+     "execution_count": 14,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "{paises[i]: pob[i] for i in range(len(paises))}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'COL': 50, 'CHI': 40}"
+      ]
+     },
+     "execution_count": 16,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Agregando condicionales\n",
+    "{paises[i]: pob[i] for i in range(len(paises)) if 'C' in paises[i]}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'COL': 50, 'BRA': 150, 'ARG': 50, 'CHI': 40}"
+      ]
+     },
+     "execution_count": 33,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Otra alternativa es usar el metodo zip\n",
+    "my_dict = dict(zip(paises, pob))\n",
+    "my_dict"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 73,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'H': 1,\n",
+       " 'o': 2,\n",
+       " 'l': 1,\n",
+       " 'a': 1,\n",
+       " ',': 1,\n",
+       " ' ': 1,\n",
+       " 'M': 1,\n",
+       " 'u': 1,\n",
+       " 'n': 1,\n",
+       " 'd': 1}"
+      ]
+     },
+     "execution_count": 73,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Contar cuantas veces se repite cada letra\n",
+    "my_string = 'Hola, Mundo'\n",
+    "{c: my_string.upper().count(c.upper()) for c in my_string}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 74,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'El': 14,\n",
+       " 'sol': 3,\n",
+       " 'brillaba': 1,\n",
+       " 'en': 12,\n",
+       " 'el': 14,\n",
+       " 'cielo': 2,\n",
+       " 'despejado': 1,\n",
+       " 'mientras': 2,\n",
+       " 'viento': 1,\n",
+       " 'soplaba': 1,\n",
+       " 'suavemente': 1,\n",
+       " 'la': 9,\n",
+       " 'pradera.': 1,\n",
+       " 'Un': 4,\n",
+       " 'pequeño': 1,\n",
+       " 'riachuelo': 1,\n",
+       " 'serpenteaba': 1,\n",
+       " 'por': 1,\n",
+       " 'campo,': 1,\n",
+       " 'murmurando': 1,\n",
+       " 'tranquilamente': 1,\n",
+       " 'agua': 1,\n",
+       " 'cristalina': 1,\n",
+       " 'reflejaba': 1,\n",
+       " 'luz': 1,\n",
+       " 'del': 1,\n",
+       " 'sol.': 1,\n",
+       " 'grupo': 1,\n",
+       " 'de': 6,\n",
+       " 'ciervos': 1,\n",
+       " 'pastaba': 1,\n",
+       " 'hierba': 1,\n",
+       " 'alta,': 1,\n",
+       " 'ocasionalmente': 1,\n",
+       " 'levantando': 1,\n",
+       " 'cabeza': 1,\n",
+       " 'para': 2,\n",
+       " 'olfatear': 1,\n",
+       " 'aire.': 1,\n",
+       " 'En': 12,\n",
+       " 'horizonte,': 1,\n",
+       " 'un': 4,\n",
+       " 'pájaro': 1,\n",
+       " 'solitario': 1,\n",
+       " 'trazaba': 1,\n",
+       " 'círculos': 1,\n",
+       " 'cielo,': 1,\n",
+       " 'cantando': 1,\n",
+       " 'su': 2,\n",
+       " 'melodía.': 1,\n",
+       " 'Era': 2,\n",
+       " 'día': 2,\n",
+       " 'perfecto': 1,\n",
+       " 'disfrutar': 1,\n",
+       " 'belleza': 1,\n",
+       " 'naturaleza.': 1}"
+      ]
+     },
+     "execution_count": 74,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Contar cuantas veces se repite cada palabra\n",
+    "my_string = 'El sol brillaba en el cielo despejado mientras el viento soplaba suavemente en la pradera. Un pequeño riachuelo serpenteaba por el campo, murmurando tranquilamente mientras el agua cristalina reflejaba la luz del sol. Un grupo de ciervos pastaba en la hierba alta, ocasionalmente levantando la cabeza para olfatear el aire. En el horizonte, un pájaro solitario trazaba círculos en el cielo, cantando su melodía. Era un día perfecto para disfrutar de la belleza de la naturaleza.'\n",
+    "{c: my_string.upper().count(c.upper()) for c in my_string.split( )}"
    ]
   }
  ],

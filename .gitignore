@@ -3,3 +3,5 @@ venv/
 *.pdf
 *.pdf
 *__pycache__
+*.csv
+*.xlsx

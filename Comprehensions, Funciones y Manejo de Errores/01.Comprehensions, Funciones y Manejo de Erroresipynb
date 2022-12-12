@@ -980,48 +980,106 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 44,
+   "execution_count": 59,
    "metadata": {},
    "outputs": [],
    "source": [
-    "import re"
+    "df = pd.read_csv('world_population.csv', index_col=0)\n",
+    "df.rename(columns={'Country/Territory': 'Country'}, inplace=True)\n",
+    "\n",
+    "df_work = df.query('Country == \"Colombia\"')\n",
+    "df_work.reset_index(inplace=True)"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 45,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "texto = 'Mi numero celular es 3110045673 y mi número de la suerte es el 9. La factura llego por 39.900 39900'"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 48,
+   "execution_count": 53,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "['3110045673', '9', '39900', '39900']"
+       "['2022 Population',\n",
+       " '2020 Population',\n",
+       " '2015 Population',\n",
+       " '2010 Population',\n",
+       " '2000 Population',\n",
+       " '1990 Population',\n",
+       " '1980 Population',\n",
+       " '1970 Population']"
       ]
      },
-     "execution_count": 48,
+     "execution_count": 53,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
-    "re.findall('[0-9]+', texto.replace('.', ''))"
+    "labels = list(filter(lambda x:'Population' in x,df_work.columns))\n",
+    "labels.pop()\n",
+    "labels"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 63,
    "metadata": {},
    "outputs": [],
-   "source": []
+   "source": [
+    "values = [df_work[i][0] for i in labels]\n",
+    "values.pop()\n",
+    "\n",
+    "data = dict(zip(labels, values))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 69,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[51874024, 50930662, 47119728, 44816108, 39215135, 32601393, 26176195]"
+      ]
+     },
+     "execution_count": 69,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "values"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 76,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "values.reverse()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 77,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[26176195, 32601393, 39215135, 44816108, 47119728, 50930662, 51874024]"
+      ]
+     },
+     "execution_count": 77,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "values"
+   ]
   },
   {
    "cell_type": "code",
